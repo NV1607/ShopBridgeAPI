@@ -1,0 +1,849 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ShopBridge</name>
+    </assembly>
+    <members>
+        <member name="T:ShopBridge.BusinessLogic.CategoryBusinessLogic">
+            <summary>
+            CategoryBusinessLogic
+            </summary>
+        </member>
+        <member name="M:ShopBridge.BusinessLogic.CategoryBusinessLogic.#ctor(ShopBridge.Repository.IGenericRepository{ShopBridge.Models.Category})">
+            <summary>
+            Category Business Logic Constuctor
+            </summary>
+            <param name="categoryRepositoryBusinessLogic"></param>
+        </member>
+        <member name="M:ShopBridge.BusinessLogic.CategoryBusinessLogic.GetProductCategory(System.Int32)">
+            <summary>
+            GetProductCategory
+            </summary>
+            <param name="categoryId"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ShopBridge.BusinessLogic.ICategoryBusinessLogic">
+            <summary>
+            ICategoryBusinessLogic
+            </summary>
+        </member>
+        <member name="M:ShopBridge.BusinessLogic.ICategoryBusinessLogic.GetProductCategory(System.Int32)">
+            <summary>
+            GetSupplierDetails
+            </summary>
+            <param name="categoryId"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ShopBridge.BusinessLogic.IInventoryBusinessLogic">
+            <summary>
+            IInventoryBusinessLogic
+            </summary>
+        </member>
+        <member name="M:ShopBridge.BusinessLogic.IInventoryBusinessLogic.GetAllProducts(ShopBridge.DataTransferObjects.PagedParameters)">
+            <summary>
+            GetAllProducts
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ShopBridge.BusinessLogic.IInventoryBusinessLogic.AddNewProduct(ShopBridge.DataTransferObjects.AddProductRequestDataTransferObject,ShopBridge.BusinessLogic.ISupplierBussinessLogic,ShopBridge.BusinessLogic.ICategoryBusinessLogic)">
+            <summary>
+            Add New Product
+            </summary>
+            <param name="addProductRequestDataTransferObject"></param>
+            <param name="supplierBussinessLogic"></param>
+            <param name="categoryBusinessLogic"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ShopBridge.BusinessLogic.IInventoryBusinessLogic.ModifyProduct(ShopBridge.DataTransferObjects.ModifyProductRequestDataTransferObject)">
+            <summary>
+            ModifyProduct
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ShopBridge.BusinessLogic.IInventoryBusinessLogic.DeleteProduct(System.Int32)">
+            <summary>
+            DeleteProduct
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:ShopBridge.BusinessLogic.InventoryBusinessLogic">
+            <summary>
+            InventoryBusinessLogic
+            </summary>
+        </member>
+        <member name="M:ShopBridge.BusinessLogic.InventoryBusinessLogic.#ctor(ShopBridge.Repository.IGenericRepository{ShopBridge.Models.Product},AutoMapper.IMapper)">
+            <summary>
+            Inventory BusinessLogic Constructor
+            </summary>
+        </member>
+        <member name="M:ShopBridge.BusinessLogic.InventoryBusinessLogic.AddNewProduct(ShopBridge.DataTransferObjects.AddProductRequestDataTransferObject,ShopBridge.BusinessLogic.ISupplierBussinessLogic,ShopBridge.BusinessLogic.ICategoryBusinessLogic)">
+            <summary>
+            Add New Product
+            </summary>
+            <param name="addProductRequestDataTransferObject"></param>
+            <param name="supplierBussinessLogic"></param>
+            <param name="categoryBusinessLogic"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ShopBridge.BusinessLogic.InventoryBusinessLogic.DeleteProduct(System.Int32)">
+            <summary>
+            DeleteProduct
+            </summary>
+            <param name="productId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ShopBridge.BusinessLogic.InventoryBusinessLogic.GetAllProducts(ShopBridge.DataTransferObjects.PagedParameters)">
+            <summary>
+            GetAllProducts
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ShopBridge.BusinessLogic.InventoryBusinessLogic.ModifyProduct(ShopBridge.DataTransferObjects.ModifyProductRequestDataTransferObject)">
+            <summary>
+            ModifyProduct
+            </summary>
+            <param name="modifyProductRequestDataTransferObject"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ShopBridge.BusinessLogic.ISupplierBussinessLogic">
+            <summary>
+            ISupplierBussinessLogic
+            </summary>
+        </member>
+        <member name="M:ShopBridge.BusinessLogic.ISupplierBussinessLogic.GetSupplier(System.Int32)">
+            <summary>
+            GetSupplierDetails
+            </summary>
+            <param name="supplierId"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ShopBridge.BusinessLogic.SupplierBussinessLogic">
+            <summary>
+            Supplier BussinessLogic
+            </summary>
+        </member>
+        <member name="M:ShopBridge.BusinessLogic.SupplierBussinessLogic.#ctor(ShopBridge.Repository.IGenericRepository{ShopBridge.Models.Supplier})">
+            <summary>
+            Supplier BussinessLogic Constuctor
+            </summary>
+            <param name="supplierRepositoryBusinessLogic"></param>
+        </member>
+        <member name="M:ShopBridge.BusinessLogic.SupplierBussinessLogic.GetSupplier(System.Int32)">
+            <summary>
+            GetSupplier
+            </summary>
+            <param name="supplierId"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ShopBridge.Controllers.InventoryController">
+            <summary>
+            InventoryController
+            </summary>
+        </member>
+        <member name="M:ShopBridge.Controllers.InventoryController.#ctor(ShopBridge.BusinessLogic.IInventoryBusinessLogic)">
+            <summary>
+            InventoryController Constuctor
+            </summary>
+        </member>
+        <member name="M:ShopBridge.Controllers.InventoryController.GetAllProducts(ShopBridge.DataTransferObjects.PagedParameters)">
+            <summary>
+            Get All Products In Inventory
+            </summary>
+            <param name="pagedParamets"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ShopBridge.Controllers.InventoryController.AddNewProduct(ShopBridge.DataTransferObjects.AddProductRequestDataTransferObject,ShopBridge.BusinessLogic.ISupplierBussinessLogic,ShopBridge.BusinessLogic.ICategoryBusinessLogic)">
+            <summary>
+            Add New Product In Inventory
+            </summary>
+            <param name="addProductRequestDataTransferObject"></param>
+            <param name="supplierBussinessLogic"></param>
+            <param name="categoryBusinessLogic"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ShopBridge.Controllers.InventoryController.UpdateProduct(ShopBridge.DataTransferObjects.ModifyProductRequestDataTransferObject)">
+            <summary>
+            Modify Product In Inventory
+            </summary>
+            <param name="modifyProductRequestDataTransferObject"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ShopBridge.Controllers.InventoryController.RemoveProduct(System.Int32)">
+            <summary>
+            Remove Product from Inventory
+            </summary>
+            <param name="productId"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ShopBridge.Database.OrderBySelectors">
+            <summary>
+            OrderBySelectors
+            </summary>
+        </member>
+        <member name="M:ShopBridge.Database.OrderBySelectors.GetProductOrderBySelector(System.String)">
+            <summary>
+            Get user order by selector based on order by string
+            </summary>
+            <param name="orderBy">string</param>
+            <returns></returns>
+        </member>
+        <member name="T:ShopBridge.Database.ShopBridgeContext">
+            <summary>
+            Shop Bridge Context uses to pass db context options 
+            like connection string and others to base class i.e DbContext
+            which is useful to obtain database connection
+            </summary>
+        </member>
+        <member name="M:ShopBridge.Database.ShopBridgeContext.#ctor(Microsoft.EntityFrameworkCore.DbContextOptions{ShopBridge.Database.ShopBridgeContext})">
+            <summary>
+            ProductShipContext
+            </summary>
+            <param name="options"></param>
+        </member>
+        <member name="M:ShopBridge.Database.ShopBridgeContext.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <summary>
+            On Model Creating method to specify
+            relationship between the model class i.e tables
+            </summary>
+            <param name="modelBuilder"></param>
+        </member>
+        <member name="P:ShopBridge.Database.ShopBridgeContext.Suppliers">
+            <summary>
+            Suppliers DbSet
+            </summary>
+        </member>
+        <member name="P:ShopBridge.Database.ShopBridgeContext.Products">
+            <summary>
+            Products DbSet
+            </summary>
+        </member>
+        <member name="P:ShopBridge.Database.ShopBridgeContext.Categories">
+            <summary>
+            Categories DbSet
+            </summary>
+        </member>
+        <member name="T:ShopBridge.Database.ShopBridgeDatabaseInitializer">
+            <summary>
+            ShopBridgeDatabaseInitializer
+            </summary>
+        </member>
+        <member name="M:ShopBridge.Database.ShopBridgeDatabaseInitializer.Initialize(ShopBridge.Database.ShopBridgeContext)">
+            <summary>
+            Initialize Tables
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="T:ShopBridge.DataTransferObjects.AddProductRequestDataTransferObject">
+            <summary>
+            AddProductRequestDataTransferObject
+            </summary>
+        </member>
+        <member name="P:ShopBridge.DataTransferObjects.AddProductRequestDataTransferObject.ProductName">
+            <summary>
+            ProductName
+            </summary>
+        </member>
+        <member name="P:ShopBridge.DataTransferObjects.AddProductRequestDataTransferObject.ProductUnit">
+            <summary>
+            ProductUnit
+            </summary>
+        </member>
+        <member name="P:ShopBridge.DataTransferObjects.AddProductRequestDataTransferObject.ProductPrice">
+            <summary>
+            ProductPrice
+            </summary>
+        </member>
+        <member name="P:ShopBridge.DataTransferObjects.AddProductRequestDataTransferObject.ProductQuantity">
+            <summary>
+            ProductQuantity
+            </summary>
+        </member>
+        <member name="P:ShopBridge.DataTransferObjects.AddProductRequestDataTransferObject.ProductDescription">
+            <summary>
+            ProductQuantity
+            </summary>
+        </member>
+        <member name="P:ShopBridge.DataTransferObjects.AddProductRequestDataTransferObject.SupplierId">
+            <summary>
+            SupplierId
+            </summary>
+        </member>
+        <member name="P:ShopBridge.DataTransferObjects.AddProductRequestDataTransferObject.CategoryId">
+            <summary>
+            CategoryId
+            </summary>
+        </member>
+        <member name="T:ShopBridge.DataTransferObjects.ModifyProductRequestDataTransferObject">
+            <summary>
+            ModifyProductRequestDataTransferObject
+            </summary>
+        </member>
+        <member name="P:ShopBridge.DataTransferObjects.ModifyProductRequestDataTransferObject.ProductId">
+            <summary>
+            ProductId
+            </summary>
+        </member>
+        <member name="P:ShopBridge.DataTransferObjects.ModifyProductRequestDataTransferObject.ProductName">
+            <summary>
+            ProductName
+            </summary>
+        </member>
+        <member name="P:ShopBridge.DataTransferObjects.ModifyProductRequestDataTransferObject.ProductUnit">
+            <summary>
+            ProductUnit
+            </summary>
+        </member>
+        <member name="P:ShopBridge.DataTransferObjects.ModifyProductRequestDataTransferObject.ProductPrice">
+            <summary>
+            ProductPrice
+            </summary>
+        </member>
+        <member name="P:ShopBridge.DataTransferObjects.ModifyProductRequestDataTransferObject.ProductQuantity">
+            <summary>
+            ProductQuantity
+            </summary>
+        </member>
+        <member name="T:ShopBridge.DataTransferObjects.PagedParameters">
+            <summary>
+            PagedParameters
+            </summary>
+        </member>
+        <member name="T:ShopBridge.DataTransferObjects.ProductResponseDataTransferObject">
+            <summary>
+            ProductResponseDataTransferObject
+            </summary>
+        </member>
+        <member name="P:ShopBridge.DataTransferObjects.ProductResponseDataTransferObject.Id">
+            <summary>
+            Id
+            </summary>
+        </member>
+        <member name="P:ShopBridge.DataTransferObjects.ProductResponseDataTransferObject.ProductName">
+            <summary>
+            ProductName
+            </summary>
+        </member>
+        <member name="P:ShopBridge.DataTransferObjects.ProductResponseDataTransferObject.ProductDescription">
+            <summary>
+            ProductDescription
+            </summary>
+        </member>
+        <member name="P:ShopBridge.DataTransferObjects.ProductResponseDataTransferObject.ProductUnit">
+            <summary>
+            ProductUnit
+            </summary>
+        </member>
+        <member name="P:ShopBridge.DataTransferObjects.ProductResponseDataTransferObject.ProductPrice">
+            <summary>
+            ProductPrice
+            </summary>
+        </member>
+        <member name="P:ShopBridge.DataTransferObjects.ProductResponseDataTransferObject.ProductQuantity">
+            <summary>
+            ProductQuantity
+            </summary>
+        </member>
+        <member name="P:ShopBridge.DataTransferObjects.ProductResponseDataTransferObject.ProductStatus">
+            <summary>
+            ProductStatus
+            </summary>
+        </member>
+        <member name="P:ShopBridge.DataTransferObjects.ProductResponseDataTransferObject.SupplierId">
+            <summary>
+            SupplierId
+            </summary>
+        </member>
+        <member name="P:ShopBridge.DataTransferObjects.ProductResponseDataTransferObject.SupplierName">
+            <summary>
+            SupplierName
+            </summary>
+        </member>
+        <member name="P:ShopBridge.DataTransferObjects.ProductResponseDataTransferObject.CategoryId">
+            <summary>
+            CategoryId
+            </summary>
+        </member>
+        <member name="P:ShopBridge.DataTransferObjects.ProductResponseDataTransferObject.CategoryName">
+            <summary>
+            CategoryName
+            </summary>
+        </member>
+        <member name="T:ShopBridge.Extensions.MultipleIncludeExtension">
+            <summary>
+            MultipleIncludeExtension
+            </summary>
+        </member>
+        <member name="M:ShopBridge.Extensions.MultipleIncludeExtension.IncludeMultipleNavigateProperty``2(System.Linq.IQueryable{``0},System.Collections.Generic.IEnumerable{System.Linq.Expressions.Expression{System.Func{``0,``1}}})">
+            <summary>
+            IncludeMultipleNavigateProperty
+            </summary>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TProperty"></typeparam>
+            <param name="query"></param>
+            <param name="includes"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ShopBridge.Extensions.PaginationExtension">
+            <summary>
+            PaginationExtension
+            </summary>
+        </member>
+        <member name="M:ShopBridge.Extensions.PaginationExtension.PaginateDataAsync``2(System.Linq.IQueryable{``0},ShopBridge.DataTransferObjects.PagedParameters,System.Func{``0,``1})">
+            <summary>
+            PaginateDataAsync
+            </summary>
+            <typeparam name="T"></typeparam>
+            <typeparam name="Tkey"></typeparam>
+            <param name="query"></param>
+            <param name="pagedParametes"></param>
+            <param name="orderbySelector"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ShopBridge.Middleware.ErrorHandlerMiddleware">
+            <summary>
+            ErrorHandlerMiddleware
+            </summary>
+        </member>
+        <member name="M:ShopBridge.Middleware.ErrorHandlerMiddleware.#ctor(Microsoft.AspNetCore.Http.RequestDelegate)">
+            <summary>
+            ErrorHandlerMiddleware
+            </summary>
+            <param name="next"></param>
+        </member>
+        <member name="M:ShopBridge.Middleware.ErrorHandlerMiddleware.Invoke(Microsoft.AspNetCore.Http.HttpContext,Microsoft.Extensions.Logging.ILogger{ShopBridge.Middleware.ErrorHandlerMiddleware})">
+            <summary>
+            Invoke
+            </summary>
+            <param name="context"></param>
+            <param name="logger"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ShopBridge.Models.Category">
+            <summary>
+            Product Category 
+            </summary>
+        </member>
+        <member name="P:ShopBridge.Models.Category.Id">
+            <summary>
+            Id
+            </summary>
+        </member>
+        <member name="P:ShopBridge.Models.Category.CategoryName">
+            <summary>
+            CategoryName
+            </summary>
+        </member>
+        <member name="P:ShopBridge.Models.Category.Description">
+            <summary>
+            Description
+            </summary>
+        </member>
+        <member name="P:ShopBridge.Models.Category.Products">
+            <summary>
+            Products Collection
+            </summary>
+        </member>
+        <member name="T:ShopBridge.Models.Product">
+            <summary>
+            Product Inventory
+            </summary>
+        </member>
+        <member name="P:ShopBridge.Models.Product.Id">
+            <summary>
+            Id
+            </summary>
+        </member>
+        <member name="P:ShopBridge.Models.Product.ProductName">
+            <summary>
+            ProductName
+            </summary>
+        </member>
+        <member name="P:ShopBridge.Models.Product.ProductDescription">
+            <summary>
+            ProductDescription
+            </summary>
+        </member>
+        <member name="P:ShopBridge.Models.Product.ProductUnit">
+            <summary>
+            ProductUnit
+            </summary>
+        </member>
+        <member name="P:ShopBridge.Models.Product.ProductPrice">
+            <summary>
+            ProductPrice
+            </summary>
+        </member>
+        <member name="P:ShopBridge.Models.Product.ProductQuantity">
+            <summary>
+            ProductQuantity
+            </summary>
+        </member>
+        <member name="P:ShopBridge.Models.Product.ProductStatus">
+            <summary>
+            ProductStatus
+            </summary>
+        </member>
+        <member name="P:ShopBridge.Models.Product.SupplierId">
+            <summary>
+            SupplierId
+            </summary>
+        </member>
+        <member name="P:ShopBridge.Models.Product.CategoryId">
+            <summary>
+            CategoryId
+            </summary>
+        </member>
+        <member name="P:ShopBridge.Models.Product.Supplier">
+            <summary>
+            Supplier
+            </summary>
+        </member>
+        <member name="P:ShopBridge.Models.Product.Category">
+            <summary>
+            Category
+            </summary>
+        </member>
+        <member name="T:ShopBridge.Models.Supplier">
+            <summary>
+            Supplier 
+            </summary>
+        </member>
+        <member name="P:ShopBridge.Models.Supplier.Id">
+            <summary>
+            Id
+            </summary>
+        </member>
+        <member name="P:ShopBridge.Models.Supplier.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="P:ShopBridge.Models.Supplier.PhoneNumber">
+            <summary>
+            PhoneNumber
+            </summary>
+        </member>
+        <member name="P:ShopBridge.Models.Supplier.Email">
+            <summary>
+            Email
+            </summary>
+        </member>
+        <member name="P:ShopBridge.Models.Supplier.Address">
+            <summary>
+            Address
+            </summary>
+        </member>
+        <member name="P:ShopBridge.Models.Supplier.Products">
+            <summary>
+            Products
+            </summary>
+        </member>
+        <member name="T:ShopBridge.Program">
+            <summary>
+            Program
+            </summary>
+        </member>
+        <member name="M:ShopBridge.Program.Main(System.String[])">
+            <summary>
+            Main
+            </summary>
+            <param name="args"></param>
+        </member>
+        <member name="M:ShopBridge.Program.CreateHostBuilder(System.String[])">
+            <summary>
+            CreateHostBuilder
+            </summary>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ShopBridge.Repository.GenericRepository`1">
+            <summary>
+            We are using Generic Repository to 
+            perform all generic database operation like
+            create, update, select, modify for each table
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:ShopBridge.Repository.GenericRepository`1.#ctor(Microsoft.EntityFrameworkCore.DbContext)">
+            <summary>
+            
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:ShopBridge.Repository.GenericRepository`1.Commit">
+            <summary>
+            Commit
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ShopBridge.Repository.GenericRepository`1.Add(`0)">
+            <summary>
+            Add
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ShopBridge.Repository.GenericRepository`1.Count(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            Count
+            </summary>
+            <param name="expression"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ShopBridge.Repository.GenericRepository`1.Delete(`0)">
+            <summary>
+            Delete
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ShopBridge.Repository.GenericRepository`1.FirstOrDefault(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            FirstOrDefault
+            </summary>
+            <param name="expression"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ShopBridge.Repository.GenericRepository`1.GetAll">
+            <summary>
+            GetAll
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ShopBridge.Repository.GenericRepository`1.GetAllPagedresultWithIncludes``1(ShopBridge.DataTransferObjects.PagedParameters,System.Func{`0,``0},System.Collections.Generic.IEnumerable{System.Linq.Expressions.Expression{System.Func{`0,``0}}})">
+            <summary>
+            GetAllPagedresultWithIncludes
+            </summary>
+            <typeparam name="TKey"></typeparam>
+            <param name="pagedParameters"></param>
+            <param name="orderbySelector"></param>
+            <param name="includes"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ShopBridge.Repository.GenericRepository`1.Update(`0)">
+            <summary>
+            Update
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ShopBridge.Repository.GenericRepository`1.Where(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            Where
+            </summary>
+            <param name="expression"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ShopBridge.Repository.GenericRepository`1.BeginTransactionAsync">
+            <summary>
+            BeginTransactionAsync
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ShopBridge.Repository.GenericRepository`1.CreateExecutionStrategy">
+            <summary>
+            BeginTransactionAsync
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:ShopBridge.Repository.IGenericRepository`1">
+            <summary>
+            IGenericRepository
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:ShopBridge.Repository.IGenericRepository`1.Add(`0)">
+            <summary>
+            Add new record of type T.
+            </summary>
+            <param name="entity">T</param>
+            <returns>Task<T/></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:ShopBridge.Repository.IGenericRepository`1.GetAll" -->
+        <member name="M:ShopBridge.Repository.IGenericRepository`1.GetAllPagedresultWithIncludes``1(ShopBridge.DataTransferObjects.PagedParameters,System.Func{`0,``0},System.Collections.Generic.IEnumerable{System.Linq.Expressions.Expression{System.Func{`0,``0}}})">
+            <summary>
+            WherePagedresultWithIncludes
+            </summary>
+            <typeparam name="TKey"></typeparam>
+            <param name="pagedParameters"></param>
+            <param name="orderbySelector"></param>
+            <param name="includes"></param>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:ShopBridge.Repository.IGenericRepository`1.Count(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})" -->
+        <!-- Badly formed XML comment ignored for member "M:ShopBridge.Repository.IGenericRepository`1.FirstOrDefault(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})" -->
+        <!-- Badly formed XML comment ignored for member "M:ShopBridge.Repository.IGenericRepository`1.Where(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})" -->
+        <member name="M:ShopBridge.Repository.IGenericRepository`1.Update(`0)">
+            <summary>
+            Update exiting record of type T.
+            </summary>
+            <param name="entity">T</param>
+            <returns>T</returns>
+        </member>
+        <member name="M:ShopBridge.Repository.IGenericRepository`1.Delete(`0)">
+            <summary>
+            Delete the existing record of type T.
+            </summary>
+            <param name="entity">T</param>
+            <returns>T</returns>2
+        </member>
+        <member name="M:ShopBridge.Repository.IGenericRepository`1.BeginTransactionAsync">
+            <summary>
+            BeginTransactionAsync
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ShopBridge.Repository.IGenericRepository`1.CreateExecutionStrategy">
+            <summary>
+            CreateExecutionStrategy
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:ShopBridge.Startup">
+            <summary>
+            Startup
+            </summary>
+        </member>
+        <member name="M:ShopBridge.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Startup
+            </summary>
+            <param name="configuration"></param>
+        </member>
+        <member name="P:ShopBridge.Startup.AssemblyName">
+            <summary>
+            AssemblyName
+            </summary>
+        </member>
+        <member name="P:ShopBridge.Startup.Configuration">
+            <summary>
+            Configuration
+            </summary>
+        </member>
+        <member name="M:ShopBridge.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            ConfigureServices
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="M:ShopBridge.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment,ShopBridge.Database.ShopBridgeContext)">
+            <summary>
+            Configure
+            </summary>
+            <param name="app"></param>
+            <param name="env"></param>
+            <param name="context"></param>
+        </member>
+        <member name="T:ShopBridge.Utility.FileLogger">
+            <summary>
+            FileLogger
+            </summary>
+        </member>
+        <member name="M:ShopBridge.Utility.FileLogger.#ctor(ShopBridge.Utility.FileLoggerProvider)">
+            <summary>
+            
+            </summary>
+            <param name="fileProvider"></param>
+        </member>
+        <member name="M:ShopBridge.Utility.FileLogger.BeginScope``1(``0)">
+            <summary>
+            BeginScope
+            </summary>
+            <typeparam name="TState"></typeparam>
+            <param name="state"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ShopBridge.Utility.FileLogger.IsEnabled(Microsoft.Extensions.Logging.LogLevel)">
+            <summary>
+            
+            </summary>
+            <param name="logLevel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ShopBridge.Utility.FileLogger.Log``1(Microsoft.Extensions.Logging.LogLevel,Microsoft.Extensions.Logging.EventId,``0,System.Exception,System.Func{``0,System.Exception,System.String})">
+            <summary>
+            
+            </summary>
+            <typeparam name="TState"></typeparam>
+            <param name="logLevel"></param>
+            <param name="eventId"></param>
+            <param name="state"></param>
+            <param name="exception"></param>
+            <param name="formatter"></param>
+        </member>
+        <member name="T:ShopBridge.Utility.FileLoggerExtension">
+            <summary>
+            FileLoggerExtension
+            </summary>
+        </member>
+        <member name="M:ShopBridge.Utility.FileLoggerExtension.AddFileLogger(Microsoft.Extensions.Logging.ILoggingBuilder,System.Action{ShopBridge.Utility.FileLoggerOptions})">
+            <summary>
+            Add FileLogger Extension Method to configure or specfy to use
+            FileLoggerProvider whenever used ILoggerProvider
+            </summary>
+            <param name="builder"></param>
+            <param name="configure"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ShopBridge.Utility.FileLoggerOptions">
+            <summary>
+            FileLoggerOptions
+            </summary>
+        </member>
+        <member name="P:ShopBridge.Utility.FileLoggerOptions.FilePath">
+            <summary>
+            FilePath
+            </summary>
+        </member>
+        <member name="P:ShopBridge.Utility.FileLoggerOptions.FileName">
+            <summary>
+            FileName
+            </summary>
+        </member>
+        <member name="T:ShopBridge.Utility.FileLoggerProvider">
+            <summary>
+            FileLogger Provider
+            </summary>
+        </member>
+        <member name="F:ShopBridge.Utility.FileLoggerProvider.Options">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ShopBridge.Utility.FileLoggerProvider.#ctor(Microsoft.Extensions.Options.IOptions{ShopBridge.Utility.FileLoggerOptions})">
+            <summary>
+            FileLoggerProvider
+            </summary>
+            <param name="_options"></param>
+        </member>
+        <member name="M:ShopBridge.Utility.FileLoggerProvider.CreateLogger(System.String)">
+            <summary>
+            CreateLogger
+            </summary>
+            <param name="categoryName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ShopBridge.Utility.FileLoggerProvider.Dispose">
+            <summary>
+            Dispose
+            </summary>
+        </member>
+        <member name="M:ShopBridge.Utility.FileLoggerProvider.GetFilePath">
+            <summary>
+            GetFilePath
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:ShopBridge.Utility.ShopBridgeAutoMapper">
+            <summary>
+            ShopBridge AutoMapper use to 
+            automatically map one object values to others
+            </summary>
+        </member>
+        <member name="M:ShopBridge.Utility.ShopBridgeAutoMapper.#ctor">
+            <summary>
+            Product Ship AutoMapper Constuctor
+            </summary>
+        </member>
+    </members>
+</doc>

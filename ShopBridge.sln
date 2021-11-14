@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31205.134
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopBridge", "ShopBridge\ShopBridge.csproj", "{EFD29D60-1E68-4728-93B6-ECD24C04F981}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopBridge.Test", "ShopBridge.Test\ShopBridge.Test.csproj", "{BA4B9243-C090-4F89-BFDB-557DC020FEC3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EFD29D60-1E68-4728-93B6-ECD24C04F981}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFD29D60-1E68-4728-93B6-ECD24C04F981}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFD29D60-1E68-4728-93B6-ECD24C04F981}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFD29D60-1E68-4728-93B6-ECD24C04F981}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA4B9243-C090-4F89-BFDB-557DC020FEC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA4B9243-C090-4F89-BFDB-557DC020FEC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA4B9243-C090-4F89-BFDB-557DC020FEC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA4B9243-C090-4F89-BFDB-557DC020FEC3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C704590F-6B29-4525-845B-0766C7490A79}
+	EndGlobalSection
+EndGlobal
